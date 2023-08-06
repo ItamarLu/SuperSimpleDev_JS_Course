@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Calculator</title>
+  <style>
+
+  </style>
+</head>
+<body>
+  <div>
+    <div>
+      <button onclick="
+        calculation += '1';
+      ">1</button>
+      <button onclick="
+        calculation += '2';
+      ">2</button>
+      <button onclick="
+        calculation += '3';
+      ">3</button>
+    </div>
+    <div>
+      <button onclick="
+        calculation += '4';
+      ">4</button>
+      <button onclick="
+        calculation += '5';
+      ">5</button>
+      <button onclick="
+        calculation += '6';
+      ">6</button>
+    </div>
+    <div>
+      <button onclick="
+        calculation += '7';
+      ">7</button>
+      <button onclick="
+        calculation += '8';
+      ">8</button>
+      <button onclick="
+        calculation += '9';
+      ">9</button>
+    </div>
+    <div>
+    </div>
+
+    <button onclick="
+      calculation += '+';
+    ">+</button>
+
+    <button onclick="
+      console.log (eval(calculation));
+      calculation = '';
+    ">=</button>
+
+  </div>
+
+  <script>
+    let calculation = '';
+
+  </script>
+</body>
+</html>
