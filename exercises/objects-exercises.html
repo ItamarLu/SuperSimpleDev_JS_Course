@@ -34,13 +34,28 @@
 
     comparePrice(pen, eraser);
 
+    function isSameProduct(product1, product2) {
+      if (product1.name === product2.name && product1.price === product2.price) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    console.log (isSameProduct(pen, pen))
+
     function comparePrice(product1, product2) {
       if (product1.price < product2.price) {
         console.log(`The ${product1.name} is less expensive than the ${product2.name}.`);
-      } else {
+      } else if (product1.price > product2.price) {
         console.log(`The ${product2.name} is less expensive than the ${product1.name}.`);
+      } else {
+        console.log('They are the same price')
       }
     }
+
+    let testString = 'Good Morning';
+    console.log(testString.toLowerCase());
+    console.log(testString.repeat(2));
   </script>
 </body>
 </html>

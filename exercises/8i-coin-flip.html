@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Coin Flip</title>
+</head>
+<body>
+  <div>
+    <button onclick="
+      playGame('heads');  
+      ">heads</button>
+    <button onclick="
+      playGame('tails');
+    ">tails</button>
+  </div>
+  <script>
+    let score = {
+      wins: 0,
+      losses: 0
+    };
+
+    function playGame(guess) {
+      const randomNum = Math.random();
+      let flip = (randomNum < 0.5) ? 'heads' : 'tails';
+      let result = (guess === flip) ? 'You Win!' : 'You lose!';
+
+      
+
+    }
+  </script>
+</body>
+</html>
