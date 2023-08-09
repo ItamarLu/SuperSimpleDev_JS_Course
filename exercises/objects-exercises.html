@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Objects Exercises</title>
+</head>
+<body>
+  <div>
+  </div>
+
+  <script>
+    /*
+    const basketball = {
+      name: 'basketball',
+      price: 2095
+    };
+    console.log(basketball);
+
+    basketball.price += 500;
+    console.log(basketball);
+
+    basketball['delivery-time'] = '3 days';
+    console.log(basketball); 
+    */
+
+    const pen = {
+      name: 'pen',
+      price: 100
+    };
+  
+    const eraser = {
+      name: 'eraser',
+      price: 150
+    };
+
+    comparePrice(pen, eraser);
+
+    function comparePrice(product1, product2) {
+      if (product1.price < product2.price) {
+        console.log(`The ${product1.name} is less expensive than the ${product2.name}.`);
+      } else {
+        console.log(`The ${product2.name} is less expensive than the ${product1.name}.`);
+      }
+    }
+  </script>
+</body>
+</html>
