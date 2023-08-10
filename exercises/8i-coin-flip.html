@@ -11,20 +11,32 @@
     <button onclick="
       playGame('tails');
     ">tails</button>
+    <button onclick="
+      localStorage.removeItem('score')
+      score = {
+        wins: 0,
+        losses: 0
+      }
+      console.log(score)
+    ">Reset Score</button>
   </div>
   <script>
-    let score = {
+    let score = JSON.parse(localStorage.getItem('score')) || {
       wins: 0,
       losses: 0
     };
-
+    
+    console.log('Current Score:',JSON.parse(localStorage.getItem('score')));
+    
     function playGame(guess) {
       const randomNum = Math.random();
       let flip = (randomNum < 0.5) ? 'heads' : 'tails';
       let result = (guess === flip) ? 'You Win!' : 'You lose!';
+      result === 'You Win!' ? score.wins +=1 : score.losses +=1;
 
+      localStorage.setItem('score', JSON.stringify(score));
       
-
+      console.log(JSON.parse(localStorage.getItem('score')));
     }
   </script>
 </body>
