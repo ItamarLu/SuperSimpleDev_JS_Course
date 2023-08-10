@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>DOM Exercises</title>
+  <style>
+    p {
+      margin: 0;
+    }
+    div {
+      margin-bottom: 20px;
+      border-bottom: 3px solid red;
+      padding-bottom: 5px;
+      width: 260px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <button class="js-9a-btn">9a</button>
+    <button class="js-9b-btn">9b</button>
+  </div>
+  <div>
+    <button onclick="
+      choice('Heads')
+    ">heads</button>
+
+    <button onclick="
+      choice('Tails') 
+    ">tails</button>
+    
+    <p class="js-p-choice"></p>
+  </div>
+  <div>
+    <input type="text" placeholder="Name" class="js-name-input" onkeydown="
+      handleNameKeydown(event); 
+    ">
+    <button onclick="
+      getName();
+    ">Submit</button>
+    <p class="js-p-name"></p>
+  </div>
+  <div>
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+    <input type="text" placeholder="Cost of order" class="js-cost-input" onkeydown="
+      handleCostKeydown(event);
+    ">
+    <button onclick="
+      calculateTotal();
+    ">Calculate</button>
+    <p class="js-total-cost"></p>
+  </div>
+  <div>
+    <input type="text" placeholder="Type something" class="js-type-input" onkeyup="
+    //continuar daqui
+    ">
+    <p class="js-p-type"></p>
+  </div>
+
+  <script>
+    function typeSomething() {
+      const typeValueElm = document.querySelector('.js-type-input').value
+
+      document.querySelector('js-p-type')
+        .innerHTML = typeValueElm;
+    }
+
+    function handleCostKeydown(event) {
+      (event.key === 'Enter') ? calculateTotal() : false;
+    }
+
+    function calculateTotal() {
+      const inputElement = document.querySelector('.js-cost-input');
+      let cost = Number(inputElement.value*100);
+
+      cost = (cost < 40) ? cost+10 : cost;
+
+      document.querySelector('.js-total-cost')
+        .innerHTML = `$${cost/100}`;
+    }
+
+    function subscribe() {
+      const buttonElement = document.querySelector('.js-subscribe-button');
+
+      buttonElement.innerText = (buttonElement.innerText === 'Subscribe') ? 'Subscribed' : 'Subscribe';
+    }
+
+    function handleNameKeydown(event) {
+      if (event.key === 'Enter') {
+        getName();
+      }
+    }
+    function getName() {
+      const name = document.querySelector('.js-name-input').value;
+
+      document.querySelector('.js-p-name')
+        .innerHTML = `Your name is: ${name}`;
+    }
+
+    function choice(choice) {
+      document.querySelector('.js-p-choice')
+        .innerHTML = `You chose: ${choice}!`;
+    }
+
+    console.log(document.querySelector('.js-9a-btn').innerHTML);
+
+    document.querySelector('.js-9b-btn')
+      .innerHTML = '9b done!';
+  </script>
+</body>
+</html>
