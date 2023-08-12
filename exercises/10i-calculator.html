@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles/10i-calculator.css">
+  <body>
+    <p class="js-p-calculation p-calculation"></p>
+    <p>
+      <button onclick="
+        updateCalculation('1');
+      " class="calculator-buttons">1</button>
+      
+      <button onclick="
+        updateCalculation('2');
+      " class="calculator-buttons">2</button>
+
+      <button onclick="
+        updateCalculation('3');
+      " class="calculator-buttons">3</button>
+
+      <button onclick="
+        updateCalculation(' + ');
+      " class="calculator-buttons operator-buttons">+</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation('4');
+      " class="calculator-buttons">4</button>
+      
+      <button onclick="
+        updateCalculation('5');
+      " class="calculator-buttons">5</button>
+
+      <button onclick="
+        updateCalculation('6');
+      " class="calculator-buttons">6</button>
+
+      <button onclick="
+        updateCalculation(' - ');
+      " class="calculator-buttons operator-buttons">-</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation('7');
+      " class="calculator-buttons">7</button>
+      
+      <button onclick="
+        updateCalculation('8');
+      " class="calculator-buttons">8</button>
+
+      <button onclick="
+        updateCalculation('9');
+      " class="calculator-buttons">9</button>
+
+      <button onclick="
+        updateCalculation(' * ');
+      " class="calculator-buttons operator-buttons">*</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation('0');
+      " class="calculator-buttons">0</button>
+      
+      <button onclick="
+        updateCalculation('.');
+      " class="calculator-buttons">.</button>
+
+      <button onclick="
+        calculation = eval(calculation);
+        console.log(calculation);
+        updateP();
+      " class="calculator-buttons">=</button>
+
+      <button onclick="
+        updateCalculation(' / ');
+      " class="calculator-buttons operator-buttons">/</button>
+    </p>
+
+    <p>
+      <button onclick="
+        localStorage.removeItem('calculation');
+        calculation = '';
+        console.log(calculation);
+        updateP();
+      " class="calculator-buttons clear-button">Clear</button>
+    </p>
+    <script src="scripts/10i-calculator.js"></script>
+  </body>
+</html>
