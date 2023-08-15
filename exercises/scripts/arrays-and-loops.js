@@ -115,6 +115,7 @@ countPositive([1,-3,5]);
 countPositive([-2,3,-5,7,10]);
 */
 
+/* 11l and 11m
 function minMax(nums) {
   const count = {
     min: nums[0],
@@ -133,12 +134,16 @@ minMax([1,-3,5]);
 minMax([-2,3,-5,7,10]);
 minMax([]);
 minMax([3]);
+*/
 
 function countWords(words) {
-  const word = ['apple', 'grape', 'apple']
   const count = {};
 
   for (let i = 0; i < words.length; i++) {
-    
+    const word = words[i];
+    (!count[word]) ? count[word] = 1 : count[word]++;
   }
+
+  console.log(count);
 }
+countWords(['apple', 'grape', 'apple', 'apple'])
