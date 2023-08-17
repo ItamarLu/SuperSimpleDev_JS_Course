@@ -6,16 +6,19 @@
 </head>
 <body>
   <p>Todo List</p>
-  <input type="text" placeholder="Todo name" class="js-name-input" onkeydown="
-    (event.key === 'Enter') ? addTodo() : false;
-  ">
-  <input type="date" class="js-due-date-input">
-  <button onclick="
-    addTodo();
-  ">Add</button>
+
+  <div class="todo-input-grid">
+    <input type="text" placeholder="Todo name" class="js-name-input name-input" onkeydown="
+      (event.key === 'Enter') ? addTodo() : false;
+    ">
+    <input type="date" class="js-due-date-input due-date-input">
+    <button onclick="
+      addTodo();
+    " class="add-todo-button">Add</button>
+  </div>
 
   <div class="
-  js-todo-list"></div>
+  js-todo-list todo-grid"></div>
 
   <script src="scripts/11-todo-list.js"></script>
 </body>
