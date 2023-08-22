@@ -17,7 +17,7 @@ runTwice(function() {
 runTwice(add);
 */
 
-
+/* 12c >>> 12f
 function loading() {
   document.querySelector('.js-start-btn')
   .innerHTML = 'loading...';
@@ -40,3 +40,10 @@ function remove() {
   document.querySelector('.js-added-p')
     .innerHTML = '';
 }
+*/
+
+function titleChange() {
+  document.title = '(2) New messages';
+}
+
+titleChange();
