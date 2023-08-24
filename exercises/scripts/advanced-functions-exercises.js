@@ -42,8 +42,35 @@ function remove() {
 }
 */
 
+let messages = 2;
+
+const title = document.title;
+let index = 0;
+
 function titleChange() {
-  document.title = '(2) New messages';
+  if (index === 0) {
+    document.title = `(${messages}) New messages`; 
+    index++;
+  } else {
+    document.title = title;
+    index--;
+  }
 }
 
-titleChange();
+const titleInterval = setInterval(titleChange, 1000);
+
+function addMessage() {
+  messages++;
+  if (messages === 1) {
+    setInterval(titleChange, 1000);
+  }
+}
+
+function removeMessage() {
+  messages--;
+  (messages < 0) ? messages = 0 : messages;
+  if (messages === 0) {
+    clearInterval(titleInterval);
+    document.title = title;
+  }
+}

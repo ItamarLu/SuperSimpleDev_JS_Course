@@ -4,7 +4,21 @@
   <title>Advanced Functions</title>
 </head>
 <body>
+  <button class="js-button">Click</button>
   <script>
+    const buttonElement = document.querySelector('.js-button');
+
+    const eventListener = () => console.log('click');
+    buttonElement.addEventListener('click', eventListener);
+
+    // Remove the event listener
+    buttonElement.removeEventListener('click', eventListener);
+
+    // Can add multiple event listeners
+    buttonElement.addEventListener('click', () => {
+      console.log('click2');
+    });
+
     /*
     function greeting() {
       console.log('hello');
@@ -58,12 +72,12 @@
     
     console.log('next line2');
     */
-
+    /*
     [
       'make dinner',
       'wash dishes',
       'watch youtube'
-    ].forEach(function(value, index) {
+    ].forEach( (value, index) => {
       if (value === 'wash dishes') {
         return;
       }
@@ -71,7 +85,38 @@
       console.log(value);
     });
 
+    const regularFunction = function(param, param2) {
+      console.log('hello');
+      return 5;
+    };
 
+    const arrowFunction = (param, param2) => {
+      console.log('hello');
+      return 5;
+    };
+    arrowFunction();
+
+    //Parameters don't need brackets
+    const oneParam = param => {
+      console.log(param + 1);
+    };
+    oneParam(2);
+
+    // One line arrow function, dont need curly brackets
+    const oneLine = () => 2 + 3;
+    console.log(oneLine());
+
+    const object2 = {
+      // arrow inded object
+      method: () => {
+
+      },
+      // but this is the best way
+      method() {
+
+      }
+    };
+    */
   </script>
 </body>
 </html>

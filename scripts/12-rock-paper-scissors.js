@@ -19,9 +19,18 @@ if (!score) {
 let isAutoPLaying = false;
 let intervalId;
 
+// const autoPlay = () => {
+
+// }
+
+document.querySelector('.js-auto-play-button')
+  .addEventListener('click', () => {
+    autoPlay();
+  });
+
 function autoPlay() {
   if (!isAutoPLaying) {
-    intervalId = setInterval(function(){
+    intervalId = setInterval(() => {
       const playerMove = pickComputerMove();
       playGame(playerMove);
     }, 1000);
@@ -31,6 +40,22 @@ function autoPlay() {
       isAutoPLaying = false;
   }
 }
+
+document.querySelector('.js-rock-button').addEventListener('click', () => {
+  playGame('Rock');
+});
+document.querySelector('.js-paper-button').addEventListener('click', () => {
+  playGame('Paper');
+});
+document.querySelector('.js-scissors-button').addEventListener('click', () => {
+  playGame('Scissors');
+});
+
+document.body.addEventListener('keydown', (event) => {
+  (event.key === 'r') ? playGame('Rock') : false;
+  (event.key === 'p') ? playGame('Paper') : false;
+  (event.key === 's') ? playGame('Scissors') : false;
+});
 
 function playGame(playerMove) {
   const computerMove = pickComputerMove();
@@ -88,6 +113,15 @@ function playGame(playerMove) {
 
   updateScoreElement();
 }
+
+document.querySelector('.js-reset-score-button')
+  .addEventListener('click', () => {
+    score.wins = 0;
+    score.losses = 0;
+    score.ties = 0;
+    localStorage.removeItem('score');
+    updateScoreElement();
+  });
 
 function updateScoreElement () {
   document.querySelector('.js-score')
