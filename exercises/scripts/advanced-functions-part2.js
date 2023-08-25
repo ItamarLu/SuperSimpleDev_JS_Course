@@ -44,4 +44,15 @@ function removeEgg2(foods) {
 
 removeEgg2(['egg', 'apple', 'egg', 'egg', 'ham']);
 
-// 12p
+// 12p and 12q
+function loading() {
+  document.querySelector('.js-start-btn')
+  .innerHTML = 'loading...';
+  setTimeout(() => {
+    document.querySelector('.js-start-btn')
+    .innerHTML = 'Finished!';
+  }, 2000);
+}
+
+document.querySelector('.js-start-btn').addEventListener('click', () => loading());
+
