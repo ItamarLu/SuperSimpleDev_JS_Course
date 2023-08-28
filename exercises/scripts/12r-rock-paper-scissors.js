@@ -153,6 +153,19 @@ function pickComputerMove() {
   return computerMove;
 }
 
+const resetPara = document.createElement('p');
+const resetText = document.createTextNode('Are you sure you want to reset score?');
+resetPara.appendChild(resetText);
+
+const element = document.body;
+element.appendChild(resetPara);
+
+const buttonYes = document.createElement('button');
+const yesText = document.createTextNode('Yes');
+buttonYes.appendChild(yesText);
+
+document.body.appendChild(buttonYes);
+
 function resetConfirmation() {
-  
+
 }
