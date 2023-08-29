@@ -120,9 +120,9 @@ function playGame(playerMove) {
 }
 
 document.querySelector('.js-reset-score-button')
-  .addEventListener('click', () => resetScore());
+  .addEventListener('click', () => askReset());
 
-document.body.addEventListener('keydown', event => (event.key === 'Backspace') ? resetScore() : false);
+document.body.addEventListener('keydown', event => (event.key === 'Backspace') ? askReset() : false);
 
 function resetScore() {
   score.wins = 0;
@@ -130,6 +130,10 @@ function resetScore() {
   score.ties = 0;
   localStorage.removeItem('score');
   updateScoreElement();
+}
+
+function askReset() {
+  resetConfirmation();
 }
 
 function updateScoreElement () {
@@ -153,19 +157,47 @@ function pickComputerMove() {
   return computerMove;
 }
 
+
 const resetPara = document.createElement('p');
 const resetText = document.createTextNode('Are you sure you want to reset score?');
 resetPara.appendChild(resetText);
+resetPara.classList.add('reset-para');
 
 const element = document.body;
-element.appendChild(resetPara);
 
 const buttonYes = document.createElement('button');
 const yesText = document.createTextNode('Yes');
 buttonYes.appendChild(yesText);
+buttonYes.classList.add('reset-button-yes');
 
-document.body.appendChild(buttonYes);
+
+const buttonNo = document.createElement('button');
+const noText = document.createTextNode('No');
+buttonNo.appendChild(noText);
+buttonNo.classList.add('reset-button-no');
 
 function resetConfirmation() {
+  document.body.appendChild(resetPara);
+  document.body.appendChild(buttonYes);
+  document.body.appendChild(buttonNo);
 
+  document.querySelector('.reset-button-yes')
+    .addEventListener('click', () => {
+      resetScore();
+      clearConfirmation();
+      console.log('a');
+    });
+  document.querySelector('.reset-button-no')
+    .addEventListener('click', () => {
+      clearConfirmation();
+      console.log('b');
+    });
 }
+
+function clearConfirmation() {
+  element.removeChild(resetPara);
+  document.body.removeChild(buttonYes);
+  document.body.removeChild(buttonNo);
+}
+
+// working but giving an error in console, but i'm not gonna fix it now
